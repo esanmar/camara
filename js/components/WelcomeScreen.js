@@ -117,13 +117,7 @@ export function createWelcomeScreen(onStart) {
     });
     const step1Text = createElement('p', {
         className: 'text-[#666666]',
-        html: `Vas a cargar 
-            <a href="https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX"
-               class="text-[#CC0000] underline"
-               target="_blank"
-               rel="noopener noreferrer">
-               FastVLM-0.5B
-            </a>, un modelo multimodal que se ejecuta en tu navegador.`
+        html: `Vas a cargar un modelo multimodal que se ejecuta en tu navegador.`
     });
     step1.appendChild(badge1);
     step1.appendChild(step1Text);
@@ -141,13 +135,7 @@ export function createWelcomeScreen(onStart) {
     });
     const hfIcon = createHfIcon();
     step2Text.innerHTML = `
-        Todo se ejecuta localmente con 
-        <a href="https://github.com/huggingface/transformers.js"
-           class="text-[#CC0000] underline"
-           target="_blank"
-           rel="noopener noreferrer">
-           Transformers.js
-        </a>.
+        Todo se ejecuta localmente 
         No se envían datos a ningún servidor.`;
     step2Text.insertBefore(hfIcon, step2Text.firstChild.nextSibling);
     step2.appendChild(badge2);
