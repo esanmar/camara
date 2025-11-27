@@ -10,8 +10,7 @@ import { GLASS_EFFECTS } from '../utils/constants.js';
 
 export function createWelcomeScreen(onStart) {
     const wrapper = createElement('div', {
-        className: 'absolute inset-0 flex items-center justify-center p-8',
-        style: 'color: #FFFFFF;'
+        className: 'absolute inset-0 flex items-center justify-center p-8 text-white'
     });
 
     const content = createElement('div', {
@@ -25,25 +24,30 @@ export function createWelcomeScreen(onStart) {
         children: []
     });
 
-    const titleContent = createElement('div', { className: 'p-8 space-y-4' });
+    const titleContent = createElement('div', {
+        className: 'p-8 space-y-4'
+    });
 
     const logo = createElement('img', {
         src: 'https://ccasa.eus/image/layout_set_logo?img_id=1611483&t=1764213428468',
         alt: 'Logo CCASA',
-        className: 'mx-auto mb-4',
-        style: 'width: 140px; height: auto;'
+        className: 'mx-auto mb-4 w-36 h-auto'
     });
 
     const title = createElement('h1', {
-        className: 'text-4xl font-bold mb-2',
-        text: 'CCASA Online Video Análisis',
-        style: 'color: #000000;'
+        className: 'text-4xl font-bold mb-2 text-black',
+        text: 'CCASA Online Video Análisis'
     });
 
     const subtitle = createElement('p', {
-        className: 'text-lg',
-        html: `Análisis de vídeo en tiempo real con <a href="https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX" class="underline" target="_blank" rel="noopener noreferrer" style="color:#CC0000;">FastVLM-0.5B</a>`,
-        style: 'color: #666666;'
+        className: 'text-lg text-[#666666]',
+        html: `Análisis de vídeo en tiempo real con 
+            <a href="https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX"
+               class="underline text-[#CC0000] hover:opacity-80"
+               target="_blank"
+               rel="noopener noreferrer">
+               FastVLM-0.5B
+            </a>`
     });
 
     titleContent.appendChild(logo);
@@ -60,18 +64,21 @@ export function createWelcomeScreen(onStart) {
         children: []
     });
 
-    const statusContent = createElement('div', { className: 'p-4' });
+    const statusContent = createElement('div', {
+        className: 'p-4'
+    });
 
     const statusFlex = createElement('div', {
         className: 'flex items-center justify-center space-x-2'
     });
 
-    const statusDot = createElement('div', { className: 'status-indicator' });
+    const statusDot = createElement('div', {
+        className: 'status-indicator'
+    });
 
     const statusText = createElement('p', {
-        className: 'font-medium',
-        text: 'Cámara lista',
-        style: 'color: #CC0000;'
+        className: 'font-medium text-[#CC0000]',
+        text: 'Cámara lista'
     });
 
     statusFlex.appendChild(statusDot);
@@ -86,48 +93,77 @@ export function createWelcomeScreen(onStart) {
         children: []
     });
 
-    const howItWorksContent = createElement('div', { className: 'p-6' });
-
-    const howItWorksTitle = createElement('h2', {
-        className: 'text-lg font-semibold mb-4 text-center',
-        text: 'Cómo funciona:',
-        style: 'color: #000000;'
+    const howItWorksContent = createElement('div', {
+        className: 'p-6'
     });
 
-    const stepsList = createElement('div', { className: 'space-y-3' });
+    const howItWorksTitle = createElement('h2', {
+        className: 'text-lg font-semibold mb-4 text-center text-black',
+        text: 'Cómo funciona:',
+        attributes: { id: 'how-it-works-title' }
+    });
 
-    const gray = 'color:#666666;';
+    const stepsList = createElement('div', {
+        className: 'space-y-3'
+    });
 
     // Paso 1
-    const step1 = createElement('div', { className: 'flex items-start space-x-3' });
-    const badge1 = createElement('div', { className: 'numbered-badge', text: '1' });
+    const step1 = createElement('div', {
+        className: 'flex items-start space-x-3'
+    });
+    const badge1 = createElement('div', {
+        className: 'numbered-badge',
+        text: '1'
+    });
     const step1Text = createElement('p', {
-        className: 'text-gray-300',
-        html: `Vas a cargar <a href="https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX" style="color:#CC0000;" target="_blank" rel="noopener noreferrer">FastVLM-0.5B</a>, un modelo multimodal que se ejecuta en tu navegador.`,
-        style: gray
+        className: 'text-[#666666]',
+        html: `Vas a cargar 
+            <a href="https://huggingface.co/onnx-community/FastVLM-0.5B-ONNX"
+               class="text-[#CC0000] underline"
+               target="_blank"
+               rel="noopener noreferrer">
+               FastVLM-0.5B
+            </a>, un modelo multimodal que se ejecuta en tu navegador.`
     });
     step1.appendChild(badge1);
     step1.appendChild(step1Text);
 
     // Paso 2
-    const step2 = createElement('div', { className: 'flex items-start space-x-3' });
-    const badge2 = createElement('div', { className: 'numbered-badge', text: '2' });
-    const step2Text = createElement('p', { className: 'text-gray-300', style: gray });
+    const step2 = createElement('div', {
+        className: 'flex items-start space-x-3'
+    });
+    const badge2 = createElement('div', {
+        className: 'numbered-badge',
+        text: '2'
+    });
+    const step2Text = createElement('p', {
+        className: 'text-[#666666]'
+    });
     const hfIcon = createHfIcon();
     step2Text.innerHTML = `
         Todo se ejecuta localmente con 
-        <a href="https://github.com/huggingface/transformers.js" style="color:#CC0000;" target="_blank">Transformers.js</a>.
+        <a href="https://github.com/huggingface/transformers.js"
+           class="text-[#CC0000] underline"
+           target="_blank"
+           rel="noopener noreferrer">
+           Transformers.js
+        </a>.
         No se envían datos a ningún servidor.`;
     step2Text.insertBefore(hfIcon, step2Text.firstChild.nextSibling);
     step2.appendChild(badge2);
     step2.appendChild(step2Text);
 
     // Paso 3
-    const step3 = createElement('div', { className: 'flex items-start space-x-3' });
-    const badge3 = createElement('div', { className: 'numbered-badge', text: '3' });
+    const step3 = createElement('div', {
+        className: 'flex items-start space-x-3'
+    });
+    const badge3 = createElement('div', {
+        className: 'numbered-badge',
+        text: '3'
+    });
     const step3Text = createElement('p', {
-        text: 'Haz clic en el botón para comenzar.',
-        style: gray
+        className: 'text-[#666666]',
+        text: 'Haz clic en el botón para comenzar.'
     });
     step3.appendChild(badge3);
     step3.appendChild(step3Text);
@@ -135,7 +171,6 @@ export function createWelcomeScreen(onStart) {
     stepsList.appendChild(step1);
     stepsList.appendChild(step2);
     stepsList.appendChild(step3);
-
     howItWorksContent.appendChild(howItWorksTitle);
     howItWorksContent.appendChild(stepsList);
     howItWorksCard.appendChild(howItWorksContent);
@@ -146,23 +181,20 @@ export function createWelcomeScreen(onStart) {
     });
 
     const startButton = createGlassButton({
-        className: 'px-8 py-4 rounded-2xl',
+        className: 'px-8 py-4 rounded-2xl bg-[#CC0000] text-white font-semibold text-lg hover:bg-red-800',
         onClick: onStart,
         ariaLabel: 'Iniciar análisis de vídeo',
         children: [
             createElement('span', {
                 className: 'font-semibold text-lg',
-                text: 'Iniciar análisis',
-                style: 'color:#FFFFFF;'
+                text: 'Iniciar análisis'
             })
-        ],
-        style: `background-color:#CC0000;`
+        ]
     });
 
     const hint = createElement('p', {
-        className: 'text-sm opacity-80',
-        text: 'El modelo se cargará cuando pulses el botón',
-        style: gray
+        className: 'text-sm text-[#666666] opacity-80',
+        text: 'El modelo se cargará cuando pulses el botón'
     });
 
     buttonContainer.appendChild(startButton);
